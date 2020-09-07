@@ -115,7 +115,7 @@ void RichPresence::init(Dictionary initialize) {
 	handlers.joinRequest = RichPresence::onJoinRequest;
 	handlers.spectateGame = RichPresence::onSpectateGame;
 
-	CharString buff = ((String)initialize["app_id"]).ascii();
+	CharString buff = (initialize["app_id"].operator String()).ascii();
 
 	int autoRegister = 1;
 	const char* steamId = NULL;
@@ -126,7 +126,7 @@ void RichPresence::init(Dictionary initialize) {
 	}
 
 	if (initialize.has("steam_id")) {
-		buff = ((String)initialize["steam_id"]).ascii();
+		buff = (initialize["steam_id"].operator String()).ascii();
 		steamId = buff.get_data();
 	}
 
@@ -184,7 +184,7 @@ void RichPresence::update(Dictionary presence) {
 	//	the user's current party status
 	//	idk if is necessary or optional "discord-rpc/src/serialization.cpp 108"
 	if (presence.has("state")) {
-		buff = ((String)presence["state"]).utf8();
+		buff = (presence["state"].operator String()).utf8();
 		discordPresence.state = buff.get_data();
 	}
 
@@ -192,7 +192,7 @@ void RichPresence::update(Dictionary presence) {
 	//	what the player is currently doing
 	//	idk if is necessary or optional "discord-rpc/src/serialization.cpp 109"
 	if (presence.has("details")) {
-		buff = ((String)presence["details"]).utf8();
+		buff = (presence["details"].operator String()).utf8();
 		discordPresence.details = buff.get_data();
 	}
 
@@ -216,7 +216,7 @@ void RichPresence::update(Dictionary presence) {
 	//	OPTIONAL
 	//	name of the uploaded image for the large profile artwork	
 	if (presence.has("large_image_key")) {
-		buff = ((String)presence["large_image_key"]).utf8();
+		buff = (presence["large_image_key"].operator String()).utf8();
 		discordPresence.largeImageKey = buff.get_data();
 	}
 
@@ -224,7 +224,7 @@ void RichPresence::update(Dictionary presence) {
 	//	OPTIONAL
 	//	tooltip for the largeImageKey
 	if (presence.has("large_image_text")) {
-		buff = ((String)presence["large_image_text"]).utf8();
+		buff = (presence["large_image_text"].operator String()).utf8();
 		discordPresence.largeImageText = buff.get_data();
 	}
 
@@ -232,7 +232,7 @@ void RichPresence::update(Dictionary presence) {
 	//	OPTIONAL
 	//	name of the uploaded image for the small profile artwork
 	if (presence.has("small_image_key")) {
-		buff = ((String)presence["small_image_key"]).utf8();
+		buff = (presence["small_image_key"].operator String()).utf8();
 		discordPresence.smallImageKey = buff.get_data();
 	}
 
@@ -240,7 +240,7 @@ void RichPresence::update(Dictionary presence) {
 	//	OPTIONAL
 	//	tootltip for the smallImageKey
 	if (presence.has("small_image_text")) {
-		buff = ((String)presence["small_image_text"]).utf8();
+		buff = (presence["small_image_text"].operator String()).utf8();
 		discordPresence.smallImageText = buff.get_data();
 	}
 
@@ -251,7 +251,7 @@ void RichPresence::update(Dictionary presence) {
 
 		//	id of the player's party, lobby, or group
 		if (presence.has("party_id")) {
-			buff = ((String)presence["party_id"]).utf8();
+			buff = (presence["party_id"].operator String()).utf8();
 			discordPresence.partyId = buff.get_data();
 		}
 
@@ -268,7 +268,7 @@ void RichPresence::update(Dictionary presence) {
 	//	unique hashed string for Spectate button
 	//	discord-rpc/src/serialization.cpp 147
 	if (presence.has("spectate_secret")) {
-		buff = ((String)presence["spectate_secret"]).utf8();
+		buff = (presence["spectate_secret"].operator String()).utf8();
 		discordPresence.spectateSecret = buff.get_data();
 	}
 
@@ -277,7 +277,7 @@ void RichPresence::update(Dictionary presence) {
 	//	unique hashed string for chat invitations and Ask to Join
 	//	discord-rpc/src/serialization.cpp 147
 	if (presence.has("join_secret")) {
-		buff = ((String)presence["join_secret"]).utf8();	
+		buff = (presence["join_secret"].operator String()).utf8();	
 		discordPresence.joinSecret = buff.get_data();
 	}
 
