@@ -14,9 +14,9 @@ if platform == "windows":
 target_path = "bin/"
 target_name = "librichpresence"
 godot_cpp_library = "godot-cpp"
-godot_headers_path = "../godot-cpp/godot_headers"
-godot_bindings_path = "../godot-cpp"
-discord_rpc_path = "../discord-rpc"
+godot_headers_path = "godot-cpp/godot_headers"
+godot_bindings_path = "godot-cpp"
+discord_rpc_path = "discord-rpc"
 
 # default to debug build, must be same setting as used for cpp_bindings
 target = ARGUMENTS.get("target", "debug")
@@ -51,7 +51,8 @@ elif platform == "windows":
 		env.Append(CCFLAGS = ["-EHsc", "-D_DEBUG", "-MDd"])
 	else:
 		env.Append(CCFLAGS = ["-O2", "-EHsc", "-DNDEBUG", "-MD"])
-	
+
+	env.Append(LIBS = ["Advapi32"])	
 	target_path += "win" + str(target_arch)
 
 
@@ -66,8 +67,8 @@ env.Append(CPPPATH=[
 
 
 godot_cpp_library = "lib{}.{}.{}.{}".format(godot_cpp_library, platform, target, target_arch)
-env.Append(LIBPATH=[ godot_bindings_path + "/bin", discord_rpc_path + "/lib" ])
-env.Append(LIBS=[ godot_cpp_library, "discord-rpc", "Advapi32"])
+env.Append(LIBPATH=[ godot_bindings_path + "/bin", discord_rpc_path + "/build/src" ])
+env.Append(LIBS=[ godot_cpp_library, "discord-rpc"])
 
 sources = []
 add_sources(sources, "src")

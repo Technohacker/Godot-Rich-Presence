@@ -3,7 +3,7 @@
 
 ##### Leia em [português Brasil](README_PTBR.md).
 
-Godot Rich Presence is a lib made with GDNative to use rich presence do Discord in Godot engine 3.1.
+Godot Rich Presence is a library made with GDNative to use Discord Rich Presence in Godot 3.2.
 
 ![Rich Presence](https://i.imgur.com/5IxTNBL.png)
 
@@ -91,21 +91,14 @@ More information in [So, how does it work?](https://discordapp.com/developers/do
 
 ## How to use?
 
-The _example_ folder has a simple example of how to use it.
+The _example_ folder has a simple example
 
 ## Compiling
 
-Clone this repo and then clone the following repositories:
-- https://github.com/discordapp/discord-rpc
-- https://github.com/GodotNativeTools/godot-cpp
+Clone this repo with its submodules using the `--recursive` flag:
 
-Make sure the directory looks like:
 ```
-godot-cpp
-discord-rpc
-Godot-Rich-Presence
-├── example/
-└── src/
+git clone --recursive https://github.com/Technohacker/Godot-Rich-Presence
 ```
 
-Run SConstruct using the command `scons platform=plataforma arch=64`, the compiled files will be in `bin` folder.
+Use `build.sh` to build the native library. It's made for 64-bit Linux but comments are provided for the steps needed on other platforms
