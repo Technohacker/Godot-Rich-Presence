@@ -104,3 +104,5 @@ git clone --recursive https://github.com/Technohacker/Godot-Rich-Presence
 Use `build.sh` to build the native library. It's made for 64-bit Linux but comments are provided for the steps needed on other platforms
 
 Then, create the GDNative and GDNS files necessary for Godot [as shown here](https://docs.godotengine.org/en/3.1/tutorials/plugins/gdnative/gdnative-c-example.html#creating-the-gdnativelibrary-gdnlib-file)
+
+Copy the `bin` folder, `RichPresence.gdnlib` and `RichPresence.gdns` into your project. Changes to `RichPresence.gdnlib` will be needed for adding libraries for other playforms
