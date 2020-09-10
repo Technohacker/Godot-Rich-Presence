@@ -16,9 +16,9 @@ cd ../..
 # Enter the Godot CPP folder
 cd godot-cpp
 # Run SConstruct with generate_bindings=yes
-scons p=linux a=64 generate_bindings=yes -j$PROCESSES
+scons platform=linux bits=64 generate_bindings=yes -j$PROCESSES
 # Return to root
 cd ..
 
 # Build library
-scons p=linux a=64 -j$PROCESSES
+scons platform=linux arch=64 -j$PROCESSES
