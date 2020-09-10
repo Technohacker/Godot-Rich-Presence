@@ -52,6 +52,7 @@ elif platform == "windows":
 	else:
 		env.Append(CCFLAGS = ["-O2", "-EHsc", "-DNDEBUG", "-MD"])
 
+	env.Append(LIBPATH=[ discord_rpc_path + "/build/src/Debug", discord_rpc_path + "/build/src/Release" ])
 	env.Append(LIBS = ["Advapi32"])	
 	target_path += "win" + str(target_arch)
 

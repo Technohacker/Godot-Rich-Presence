@@ -7,6 +7,27 @@ Godot Rich Presence is a library made with GDNative to use Discord Rich Presence
 
 ![Rich Presence](https://i.imgur.com/5IxTNBL.png)
 
+## Compiling
+
+Clone this repo with its submodules using the `--recursive` flag:
+
+```
+git clone --recursive https://github.com/Technohacker/Godot-Rich-Presence
+```
+
+### For Linux
+Install `cmake`, `make`, `gcc`, `python`, `scons`. Use `build.sh` to build the native library. It's made for 64-bit Linux but comments are provided for the steps needed on other platforms
+
+### For Windows
+
+Install Scoop and run `scoop install cmake python scons`. Install the Visual Studio C++ build tools (CLI tools are enough). Use `build.bat` to build the native library. It's made for 64-bit Windows but comments are provided for the steps needed on other platforms
+
+### Usage
+
+Create the GDNative and GDNS files necessary for Godot [as shown here](https://docs.godotengine.org/en/3.1/tutorials/plugins/gdnative/gdnative-c-example.html#creating-the-gdnativelibrary-gdnlib-file)
+
+Copy the `bin` folder, `RichPresence.gdnlib` and `RichPresence.gdns` into your project. Changes to `RichPresence.gdnlib` will be needed for adding libraries for other playforms
+
 ## Functions
 
 ### init(Dictionary initialize)
@@ -92,17 +113,3 @@ More information in [So, how does it work?](https://discordapp.com/developers/do
 ## How to use?
 
 The _example_ folder has a simple example
-
-## Compiling
-
-Clone this repo with its submodules using the `--recursive` flag:
-
-```
-git clone --recursive https://github.com/Technohacker/Godot-Rich-Presence
-```
-
-Use `build.sh` to build the native library. It's made for 64-bit Linux but comments are provided for the steps needed on other platforms
-
-Then, create the GDNative and GDNS files necessary for Godot [as shown here](https://docs.godotengine.org/en/3.1/tutorials/plugins/gdnative/gdnative-c-example.html#creating-the-gdnativelibrary-gdnlib-file)
-
-Copy the `bin` folder, `RichPresence.gdnlib` and `RichPresence.gdns` into your project. Changes to `RichPresence.gdnlib` will be needed for adding libraries for other playforms
